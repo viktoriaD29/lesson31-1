@@ -1,9 +1,9 @@
-export const requestUserDate = userId => {
+export const requestUserData = (userId) => {
   const request = new Promise((resolve, reject) => {
     if (userId === 'broken') {
       setTimeout(() => {
-        reject(new Error('User not found'))
-      }, 500)
+        reject(new Error('User not found'));
+      }, 500);
     } else {
       setTimeout(() => {
         resolve({
@@ -14,13 +14,12 @@ export const requestUserDate = userId => {
         });
       }, 1000);
     }
-    
-  })
+  });
 
-  return request
-}
+  return request;
+};
 
-/*requestUserDate('broken')
-  .then(date => console.log(date))
-  .catch(error => console.log(error))
-  .finally(() => console.log('finally'))*/
+requestUserData('broken')
+  .then((date) => console.log(date))
+  .catch((error) => console.log(error))
+  .finally(() => console.log('finally'));
